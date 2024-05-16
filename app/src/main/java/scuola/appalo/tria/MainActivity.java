@@ -2,10 +2,12 @@ package scuola.appalo.tria;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -23,16 +25,21 @@ public class MainActivity extends AppCompatActivity {
     ImageView img32;
     ImageView img33;
 
+    Button reset;
+
     TextView txtRisultato;
 
     Boolean player = false;
 
     private ArrayList<String> tria               = new ArrayList<String>();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        reset = findViewById(R.id.resetBtn);
 
         img11        = findViewById(R.id.img11);
         img12        = findViewById(R.id.img12);

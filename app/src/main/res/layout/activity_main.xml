@@ -107,16 +107,23 @@
                 android:src="@drawable/android" />
         </LinearLayout>
 
+        <TextView
+            android:id="@+id/txtRisultato"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:gravity="center_horizontal"
+            android:text="..."
+            android:textSize="20sp"
+            android:textStyle="bold" />
+
+        <Button
+            android:id="@+id/resetBtn"
+            android:layout_width="167dp"
+            android:layout_height="35dp"
+            android:layout_marginLeft="130dp"
+            android:text="Button" />
+
     </LinearLayout>
 
-    <TextView
-        android:id="@+id/txtRisultato"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/idCampo"
-        android:layout_marginTop="20dp"
-        android:gravity="center_horizontal"
-        android:text="..."
-        android:textSize="20sp"
-        android:textStyle="bold" />
 </RelativeLayout>
