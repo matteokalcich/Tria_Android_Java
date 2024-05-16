@@ -31,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
 
     Boolean player = false;
 
+    Boolean finito = false;
     private ArrayList<String> tria               = new ArrayList<String>();
 
 
@@ -61,58 +62,115 @@ public class MainActivity extends AppCompatActivity {
         img11.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mossa(0);
+                if(!finito){
+
+                    mossa(0);
+                }
+
             }
         });
         img12.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mossa(1);
+                if(!finito){
+
+                    mossa(1);
+                }
             }
         });
         img13.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mossa(2);
+                if(!finito){
+
+                    mossa(2);
+                }
             }
         });
         img21.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mossa(3);
+                if(!finito){
+
+                    mossa(3);
+                }
             }
         });
         img22.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mossa(4);
+                if(!finito){
+
+                    mossa(4);
+                }
             }
         });
         img23.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mossa(5);
+                if(!finito){
+
+                    mossa(5);
+                }
             }
         });
         img31.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mossa(6);
+                if(!finito){
+
+                    mossa(6);
+                }
             }
         });
         img32.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mossa(7);
+                if(!finito){
+
+                    mossa(7);
+                }
             }
         });
         img33.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mossa(8);
+                if(!finito){
+
+                    mossa(8);
+                }
             }
         });
 
+        reset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                clearAll();
+            }
+        });
+
+    }
+
+    public void clearAll(){
+        for (int i = 0; i<9; i++){
+
+            tria.set(i, "-1");
+
+            img11.setImageDrawable(getDrawable(R.drawable.android));
+            img12.setImageDrawable(getDrawable(R.drawable.android));
+            img13.setImageDrawable(getDrawable(R.drawable.android));
+            img21.setImageDrawable(getDrawable(R.drawable.android));
+            img22.setImageDrawable(getDrawable(R.drawable.android));
+            img23.setImageDrawable(getDrawable(R.drawable.android));
+            img31.setImageDrawable(getDrawable(R.drawable.android));
+            img32.setImageDrawable(getDrawable(R.drawable.android));
+            img33.setImageDrawable(getDrawable(R.drawable.android));
+
+        }
+
+        txtRisultato.setText("GIOCA");
+        finito = false;
     }
 
     public void mossa(int m) {
@@ -205,139 +263,15 @@ public class MainActivity extends AppCompatActivity {
 
             if (tria.get(combination[0]).equals("1") && tria.get(combination[1]).equals("1") && tria.get(combination[2]).equals("1")) {
                 txtRisultato.setText("Vittoria di X");
+                finito = true;
                 break;
             }
             else if (tria.get(combination[0]).equals("0") && tria.get(combination[1]).equals("0") && tria.get(combination[2]).equals("0")) {
                 txtRisultato.setText("Vittoria di 0");
+                finito = true;
                 break;
             }
         }
-
-    }
-
-
-    public void vittoria(){
-
-        //riga 1
-
-        if((tria.get(0).equals("0") && tria.get(1).equals("0") && tria.get(2).equals("0"))){
-
-            txtRisultato.setText("Vittoria di 0");
-
-        }
-
-        //riga 2
-
-        else if((tria.get(3).equals("0") && tria.get(4).equals("0") && tria.get(5).equals("0"))){
-
-            txtRisultato.setText("Vittoria di 0");
-        }
-
-        //riga 3
-
-        else if((tria.get(6).equals("0") && tria.get(7).equals("0") && tria.get(8).equals("0"))){
-
-            txtRisultato.setText("Vittoria di 0");
-        }
-
-        //colonna 1
-
-        else if((tria.get(0).equals("0") && tria.get(3).equals("0") && tria.get(6).equals("0"))){
-
-            txtRisultato.setText("Vittoria di 0");
-        }
-
-        //colonna 2
-
-        else if((tria.get(1).equals("0") && tria.get(4).equals("0") && tria.get(7).equals("0"))){
-
-            txtRisultato.setText("Vittoria di 0");
-        }
-
-        //colonna 3
-
-        else if((tria.get(2).equals("0") && tria.get(5).equals("0") && tria.get(8).equals("0"))){
-
-            txtRisultato.setText("Vittoria di 0");
-        }
-
-
-        //diagonale 1
-
-        else if((tria.get(0).equals("0") && tria.get(4).equals("0") && tria.get(8).equals("0"))){
-
-            txtRisultato.setText("Vittoria di 0");
-        }
-
-        //diagonale 2
-
-        else if((tria.get(2).equals("0") && tria.get(4).equals("0") && tria.get(6).equals("0"))){
-
-            txtRisultato.setText("Vittoria di 0");
-        }
-
-
-
-
-
-        //riga 1
-
-        if((tria.get(0).equals("1") && tria.get(1).equals("1") && tria.get(2).equals("1"))){
-
-            txtRisultato.setText("Vittoria di X");
-
-        }
-
-        //riga 2
-
-        else if((tria.get(3).equals("1") && tria.get(4).equals("1") && tria.get(5).equals("1"))){
-
-            txtRisultato.setText("Vittoria di X");
-        }
-
-        //riga 3
-
-        else if((tria.get(6).equals("1") && tria.get(7).equals("1") && tria.get(8).equals("1"))){
-
-            txtRisultato.setText("Vittoria di X");
-        }
-
-        //colonna 1
-
-        else if((tria.get(0).equals("1") && tria.get(3).equals("1") && tria.get(6).equals("1"))){
-
-            txtRisultato.setText("Vittoria di X");
-        }
-
-        //colonna 2
-
-        else if((tria.get(1).equals("1") && tria.get(4).equals("1") && tria.get(7).equals("1"))){
-
-            txtRisultato.setText("Vittoria di X");
-        }
-
-        //colonna 3
-
-        else if((tria.get(2).equals("1") && tria.get(5).equals("1") && tria.get(8).equals("1"))){
-
-            txtRisultato.setText("Vittoria di X");
-        }
-
-
-        //diagonale 1
-
-        else if((tria.get(0).equals("1") && tria.get(4).equals("1") && tria.get(8).equals("1"))){
-
-            txtRisultato.setText("Vittoria di X");
-        }
-
-        //diagonale 2
-
-        else if((tria.get(2).equals("1") && tria.get(4).equals("1") && tria.get(6).equals("1"))){
-
-            txtRisultato.setText("Vittoria di X");
-        }
-
 
     }
 }
